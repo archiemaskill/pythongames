@@ -29,3 +29,12 @@ def test_nulled_does_not_print_to_stdout():
 
 	assert captured_stdout.getvalue() == ""
 
+
+def test_can_track_all_text_passed_in():
+	sut = StdOutPrinter.create_null()
+	tracker = sut.track_output()
+
+	sut.println("first piece of text")
+	sut.println("second piece of text")
+
+	assert tracker.output() == ["first piece of text", "second piece of text"]

@@ -24,6 +24,7 @@ def test_trackers_are_updated_with_emits():
 	assert tracker2.output() == ["second data", "third data"]
 
 
+# tracker tests
 def test_add_data_to_trackers():
 	tracker = OutputTracker(OutputListener())
 

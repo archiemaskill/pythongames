@@ -5,7 +5,7 @@ from stdin_reader import StdInReader
 from unittest.mock import patch
 
 
-class Reader(unittest.TestCase):
+class RealStdInReader(unittest.TestCase):
 
 	@patch("sys.stdin", StringIO("first line\nsecond line\n\n"))
 	def test_reads_user_input_from_stdin(self):
@@ -16,7 +16,7 @@ class Reader(unittest.TestCase):
 		self.assertEqual(reader.read_line(), "")
 
 
-class NulledReader(unittest.TestCase):
+class NulledStdInReader(unittest.TestCase):
 
 	def test_non_configured_always_returns_the_default_value(self):
 		reader = StdInReader.create_null()

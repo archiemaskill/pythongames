@@ -12,6 +12,8 @@ class StdInReader:
 
 	def read_line(self):
 		if self.lines:
+			if self.current >= len(self.lines):
+				raise StopIteration("No more lines configured in nulled StdInReader")
 			item = self.lines[self.current]
 			self.current += 1
 			return item

@@ -2,6 +2,24 @@ import unittest
 
 from src.ghost_door import GhostDoor
 
+class RealGhostDoor(unittest.TestCase):
+	def test_ghost_door_picks_values_within_range(self):
+		ghost_door = GhostDoor.create()
+		count = 0
+		min = 4
+		max = 0
+		while count < 1000:
+			door_num = ghost_door.choose()
+			if(door_num > max):
+				max = door_num
+			if(door_num < min):
+				min = door_num
+			count += 1
+
+		self.assertEqual(1, min)
+		self.assertEqual(3, max)
+
+
 
 class NulledGhostDoor(unittest.TestCase):
 	def test_non_configured_always_returns_default(self):

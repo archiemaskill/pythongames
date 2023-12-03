@@ -14,7 +14,7 @@ class GhostGame:
 
 
 def start_game():
-	(GhostGame(StdOutPrinter.create()).start())
+	GhostGame(StdOutPrinter.create()).start()
 
 
 if __name__ == '__main__':

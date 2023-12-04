@@ -1,8 +1,3 @@
-from src.ghost_door import GhostDoor
-from src.stdin_reader import StdInReader
-from stdout_printer import StdOutPrinter
-
-
 class GhostGame:
 	def __init__(self, printer, ghost_door, stdin_reader):
 		self.printer = printer
@@ -16,16 +11,8 @@ class GhostGame:
 		self.printer.println("Each door without a ghost gets you 5 points")
 		self.printer.println("Which door: 1, 2, or 3?")
 
-		ghostDoor = self.ghost_door.choose()
-		userGuess = self.stdin_reader.read_line()
+		ghost_door = self.ghost_door.choose()
+		user_guess = self.stdin_reader.read_line()
 
-		if ghostDoor == int(userGuess):
+		if ghost_door == int(user_guess):
 			self.printer.println("GHOST! GHOST!! GHOST!!!")
-
-
-def start_game():
-	GhostGame(StdOutPrinter.create()).start()
-
-
-if __name__ == '__main__':
-	start_game()

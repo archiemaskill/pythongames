@@ -1,6 +1,6 @@
 import unittest
 
-from ghostGame import GhostGame, start_game
+from ghost_game import GhostGame
 from src.ghost_door import GhostDoor
 from src.stdin_reader import StdInReader
 from src.stdout_printer import StdOutPrinter
@@ -36,7 +36,3 @@ class GameTest(unittest.TestCase):
 			"Each door without a ghost gets you 5 points",
 			"Which door: 1, 2, or 3?",
 			"GHOST! GHOST!! GHOST!!!"])
-
-	@unittest.skip
-	def test_smoke(self):
-		start_game()

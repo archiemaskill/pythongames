@@ -6,19 +6,18 @@ class RealGhostDoor(unittest.TestCase):
 	def test_ghost_door_picks_values_within_range(self):
 		ghost_door = GhostDoor.create()
 		count = 0
-		min = 4
-		max = 0
+		min_door = 4
+		max_door = 0
 		while count < 1000:
 			door_num = ghost_door.choose()
-			if(door_num > max):
-				max = door_num
-			if(door_num < min):
-				min = door_num
+			if door_num > max_door:
+				max_door = door_num
+			if door_num < min_door:
+				min_door = door_num
 			count += 1
 
-		self.assertEqual(1, min)
-		self.assertEqual(3, max)
-
+		self.assertEqual(1, min_door)
+		self.assertEqual(3, max_door)
 
 
 class NulledGhostDoor(unittest.TestCase):

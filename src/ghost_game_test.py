@@ -12,7 +12,7 @@ class GameTest(unittest.TestCase):
 	def test_welcomes_player_when_starting_new_game(self):
 		printer = StdOutPrinter.create_null()
 		tracker = printer.track_output()
-		game = GhostGame(printer, GhostDoor.create_null(), StdInReader.create_null(), GameState.new())
+		game = GhostGame(GameState.new(), GhostDoor.create_null(), StdInReader.create_null(), printer)
 
 		game.run()
 
@@ -25,7 +25,7 @@ class GameTest(unittest.TestCase):
 
 	def test_player_chooses_the_ghost_door(self):
 		printer = StdOutPrinter.create_null()
-		game = GhostGame(printer, GhostDoor.create_null(2), StdInReader.create_null("2"), GameState.running())
+		game = GhostGame(GameState.running(), GhostDoor.create_null(2), StdInReader.create_null("2"), printer)
 		tracker = printer.track_output()
 
 		game.run()
@@ -38,7 +38,8 @@ class GameTest(unittest.TestCase):
 
 	def test_player_plays_several_rounds(self):
 		printer = StdOutPrinter.create_null()
-		game = GhostGame(printer, GhostDoor.create_null(1, 2, 3), StdInReader.create_null("2", "1", "3"), GameState.running())
+		game = GhostGame(GameState.running(), GhostDoor.create_null(1, 2, 3), StdInReader.create_null("2", "1", "3"),
+						 printer)
 		tracker = printer.track_output()
 
 		game.run()

@@ -6,11 +6,7 @@ from stdout_printer import StdOutPrinter
 
 
 def start_game():
-	GhostGame(
-		StdOutPrinter.create(),
-		GhostDoor.create(),
-		StdInReader.create(),
-		GameState.new()).run()
+	GhostGame(GameState.new(), GhostDoor.create(), StdInReader.create(), StdOutPrinter.create()).run()
 
 
 if __name__ == '__main__':

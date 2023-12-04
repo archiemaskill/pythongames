@@ -4,17 +4,25 @@ class GhostGame:
 		self.ghost_door = ghost_door
 		self.stdin_reader = stdin_reader
 		self.game_state = game_state
+		self.score = 0
 
 	def run(self):
 		if not self.game_state.is_game_started:
 			self.welcome_player()
 
-		self.printer.println("Which door: 1, 2, or 3?")
-		ghost_door = self.ghost_door.choose()
-		user_guess = self.stdin_reader.read_line()
+		while True:
+			self.printer.println("Which door: 1, 2, or 3?")
+			ghost_door = self.ghost_door.choose()
+			user_guess = self.stdin_reader.read_line()
 
-		if ghost_door == int(user_guess):
-			self.printer.println("GHOST! GHOST!! GHOST!!!")
+			if ghost_door == int(user_guess):
+				self.printer.println("GHOST! GHOST!! GHOST!!!")
+				break
+			else:
+				self.printer.println("You earned 5 points :)")
+				self.score += 5
+
+		self.printer.println("Your score = " + str(self.score))
 
 	def welcome_player(self):
 		self.printer.println("Welcome to Ghost Game!")

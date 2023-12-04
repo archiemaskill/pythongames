@@ -33,7 +33,25 @@ class GameTest(unittest.TestCase):
 		tracker_output = tracker.output()
 		self.assertListEqual(tracker_output, [
 			"Which door: 1, 2, or 3?",
-			"GHOST! GHOST!! GHOST!!!"])
+			"GHOST! GHOST!! GHOST!!!",
+			"Your score = 0"])
+
+	def test_player_plays_several_rounds(self):
+		printer = StdOutPrinter.create_null()
+		game = GhostGame(printer, GhostDoor.create_null(1, 2, 3), StdInReader.create_null("2", "1", "3"), GameState.running())
+		tracker = printer.track_output()
+
+		game.run()
+
+		tracker_output = tracker.output()
+		self.assertListEqual(tracker_output, [
+			"Which door: 1, 2, or 3?",
+			"You earned 5 points :)",
+			"Which door: 1, 2, or 3?",
+			"You earned 5 points :)",
+			"Which door: 1, 2, or 3?",
+			"GHOST! GHOST!! GHOST!!!",
+			"Your score = 10"])
 
 	@staticmethod
 	def starts_with(sublist, big_list):

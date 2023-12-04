@@ -3,7 +3,7 @@ from src.stdout_printer import StdOutPrinter
 
 
 def start_game():
-	GhostGame(StdOutPrinter.create()).start()
+	GhostGame(StdOutPrinter.create()).run()
 
 
 if __name__ == '__main__':

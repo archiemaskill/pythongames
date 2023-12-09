@@ -5,30 +5,41 @@ class GhostDoor:
 
 	@staticmethod
 	def create():
-		return GhostDoor(False)
+		return GhostDoor(RealRandInt())
 
 	@staticmethod
 	def create_null(*door_nums):
-		return GhostDoor(True, door_nums)
+		return GhostDoor(StubbedRandInt(door_nums))
 
-	def __init__(self, is_nulled, door_nums=()):
-		self.is_nulled = is_nulled
+	def __init__(self, rand_int):
+		self.rand_int = rand_int
+
+	def choose(self):
+		return self.rand_int.get_rand()
+
+
+class RealRandInt:
+	@staticmethod
+	def get_rand():
+		return randint(1, 3)
+
+
+class StubbedRandInt:
+
+	def __init__(self, door_nums=()):
 		self.configured_door_nums = door_nums
 		self.current = 0
 
-	def choose(self):
-		if self.is_nulled:
-			if self.configured_door_nums:
-				if self.current >= len(self.configured_door_nums):
-					raise StopIteration("No more doors configured in nulled GhostDoor")
-				else:
-					item = self.configured_door_nums[self.current]
-					if item < 1 or item > 3:
-						raise ValueError("Value was: " + str(item))
-					self.current += 1
-
-					return item
+	def get_rand(self):
+		if self.configured_door_nums:
+			if self.current >= len(self.configured_door_nums):
+				raise StopIteration("No more doors configured in nulled GhostDoor")
 			else:
-				return 1
+				item = self.configured_door_nums[self.current]
+				if item < 1 or item > 3:
+					raise ValueError("Value was: " + str(item))
+				self.current += 1
+
+				return item
 		else:
-			return randint(1, 3)
+			return 1

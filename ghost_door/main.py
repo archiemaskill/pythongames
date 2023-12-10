@@ -6,9 +6,11 @@ from src.stdin_reader import StdInReader
 from src.stdout_printer import StdOutPrinter
 
 
-def start_game():
-	GhostGame(GameState.new(), GhostDoor.create(), StdInReader.create(), StdOutPrinter.create()).run()
-
-
 if __name__ == '__main__':
-	start_game()
+	game = GhostGame(
+		GameState.new(),
+		GhostDoor.create(),
+		StdInReader.create(),
+		StdOutPrinter.create())
+
+	game.run()

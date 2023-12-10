@@ -37,3 +37,8 @@ nulled state, it either assumes a reasonable default (user entering an infinite 
 to be provided with the user's input.
 
 `ghost_game` ties everything together, it's the main game loop and accepts all the collaborative objects in its constructor.
+
+`main.py` - this is the file that kicks everything off.  As is typical for the entry point of non-trivial programs, it is
+not easily testable. This is because it is essentially a laundry list of production collaborators, passed into the main
+game object. To unit-test this would require overriding the stdin and stdout (messy!) and the unpredictability of the
+random number generator would also create non-trivial challenges.

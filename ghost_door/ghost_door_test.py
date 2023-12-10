@@ -1,6 +1,6 @@
 import unittest
 
-from .ghost_door import GhostDoor
+from ghost_door import GhostDoor
 
 
 class RealGhostDoor(unittest.TestCase):

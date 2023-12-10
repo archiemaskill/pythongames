@@ -1,11 +1,11 @@
 import sys
-from .stdout_printer import StdOutPrinter
+from stdout_printer import StdOutPrinter
 from io import StringIO
 import pytest
 
 
 @pytest.fixture
-def setup_and_teardown(self):
+def setup_and_teardown():
 	yield
 	sys.stdout = sys.__stdout__
 

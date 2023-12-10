@@ -1,4 +1,4 @@
-from .output_tracking import OutputListener, OutputTracker
+from output_tracking import OutputListener, OutputTracker
 
 
 # listener tests
@@ -48,4 +48,3 @@ def test_stopping_tracker_removes_its_listener():
 	tracker.stop()
 	listener.emit("second data")
 	assert tracker.output() == ["first data"]
-

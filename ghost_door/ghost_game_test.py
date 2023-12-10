@@ -1,10 +1,10 @@
 import unittest
 
-from .game_state import GameState
-from .ghost_door import GhostDoor
-from .ghost_game import GhostGame
-from .stdin_reader import StdInReader
-from .stdout_printer import StdOutPrinter
+from game_state import GameState
+from ghost_door import GhostDoor
+from ghost_game import GhostGame
+from stdin_reader import StdInReader
+from stdout_printer import StdOutPrinter
 
 
 class GameTest(unittest.TestCase):

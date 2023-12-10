@@ -1,5 +1,5 @@
 import sys
-from stdout_printer import StdOutPrinter
+from .stdout_printer import StdOutPrinter
 from io import StringIO
 import pytest
 

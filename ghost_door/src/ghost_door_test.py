@@ -1,6 +1,7 @@
 import unittest
 
-from src.ghost_door import GhostDoor
+from .ghost_door import GhostDoor
+
 
 class RealGhostDoor(unittest.TestCase):
 	def test_ghost_door_picks_values_within_range(self):
@@ -46,4 +47,3 @@ class NulledGhostDoor(unittest.TestCase):
 
 		# assert
 		self.assertEqual(str(context.exception), "No more doors configured in nulled GhostDoor")
-

@@ -1,10 +1,10 @@
 import unittest
 
-from ghost_game import GhostGame
-from src.game_state import GameState
-from src.ghost_door import GhostDoor
-from src.stdin_reader import StdInReader
-from src.stdout_printer import StdOutPrinter
+from .game_state import GameState
+from .ghost_door import GhostDoor
+from .ghost_game import GhostGame
+from .stdin_reader import StdInReader
+from .stdout_printer import StdOutPrinter
 
 
 class GameTest(unittest.TestCase):
@@ -38,8 +38,11 @@ class GameTest(unittest.TestCase):
 
 	def test_player_plays_several_rounds(self):
 		printer = StdOutPrinter.create_null()
-		game = GhostGame(GameState.running(), GhostDoor.create_null(1, 2, 3), StdInReader.create_null("2", "1", "3"),
-						 printer)
+		game = GhostGame(
+			GameState.running(),
+			GhostDoor.create_null(1, 2, 3),
+			StdInReader.create_null("2", "1", "3"),
+			printer)
 		tracker = printer.track_output()
 
 		game.run()

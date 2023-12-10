@@ -1,4 +1,4 @@
-from output_tracking import OutputListener
+from .output_tracking import OutputListener
 
 
 class StdOutPrinter:

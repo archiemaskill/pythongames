@@ -1,7 +1,7 @@
 import unittest
 from io import StringIO
 
-from stdin_reader import StdInReader
+from .stdin_reader import StdInReader
 from unittest.mock import patch
 
 
